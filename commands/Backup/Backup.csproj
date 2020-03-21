@@ -3,7 +3,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>Frost.Commands</RootNamespace>
-        <Version>0.2</Version>
+        <Version>1.0</Version>
         <Authors>TD Fellows</Authors>
         <Company>Frost</Company>
         <Copyright>Copyright (c) TD Fellows 2020</Copyright>

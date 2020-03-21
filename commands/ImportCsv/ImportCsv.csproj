@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>csvsql</AssemblyName>
     <RootNamespace>Frost.ImportCsv</RootNamespace>
-    <Version>0.2</Version>
+    <Version>1.0</Version>
     <Authors>TD Fellows</Authors>
     <Company>Frost</Company>
     <Copyright>Copyright (c) 2020 TD Fellows</Copyright>
