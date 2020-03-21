@@ -1,0 +1,7 @@
+﻿<Settings>
+    <FieldType>Delimited</FieldType>
+    <Delimiter>Comma</Delimiter>
+    <FirstRowHeader>true</FirstRowHeader>
+    <SkipEmptyRows>true</SkipEmptyRows>
+    <TrimFields>true</TrimFields>
+</Settings>

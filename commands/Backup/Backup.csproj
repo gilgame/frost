@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Frost.Commands</RootNamespace>
+        <Version>0.2</Version>
+        <Authors>TD Fellows</Authors>
+        <Company>Frost</Company>
+        <Copyright>Copyright (c) TD Fellows 2020</Copyright>
+        <StartupObject>Frost.Commands.Backup</StartupObject>
+        <Description>A wrapper for 7z with presets for quick file/folder backup.</Description>
+        <AssemblyName>backup</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\..\.licenseheader" Link=".licenseheader" />
+      <None Include="..\..\LICENSE" Link="LICENSE">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\lib\Shared\Shared.csproj" />
+    </ItemGroup>
+</Project>
