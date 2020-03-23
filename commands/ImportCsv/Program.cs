@@ -41,13 +41,14 @@ namespace Frost.ImportCsv
         {
             var args = new string[]
             {
-                @"-c=""Server=FME-DEV-SQL-01.FMYN.COM\\SQL2014; Initial Catalog=StrattonWarren; Integrated Security=true""",
-                @"-n",
-                @"-m",
-                @"-e",
-                @"-l=44",
-                @"-v",
-                @"C:\Test\importcsv\test_import.csv",
+                //@"-c=""Server=FME-DEV-SQL-01.FMYN.COM\\SQL2014; Initial Catalog=StrattonWarren; Integrated Security=true""",
+                //@"-n",
+                //@"-m",
+                //@"-e",
+                //@"-l=44",
+                //@"-v",
+                //@"C:\Test\importcsv\test_import.csv",
+                @"-h",
             };
             return args;
         }

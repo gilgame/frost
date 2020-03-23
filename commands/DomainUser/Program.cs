@@ -47,7 +47,7 @@ namespace Frost.Commands.DomainUser
 
         private const string P_SHORTCUTS = "RunasShortcuts.json";
 
-        private static Options _Options = new Options();
+        private static Config _Config = new Config();
 
 #if DEBUG
 
@@ -75,11 +75,16 @@ namespace Frost.Commands.DomainUser
 
             Init(args);
 
+            if (_Config.ShowHelp)
+            {
+                QuitUsage(_Config);
+            }
+
             //create shortcuts file and exit
-            if (_Options.CreateShortcuts)
+            if (_Config.CreateShortcuts)
             {
                 Console.WriteLine("Creating shortcuts file");
-                _Options.MakeShortcuts(P_SHORTCUTS);
+                _Config.MakeShortcuts(P_SHORTCUTS);
 
                 Quit(0);
             }
@@ -107,7 +112,7 @@ namespace Frost.Commands.DomainUser
         {
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
 
-            _Options.Parse(args);
+            _Config.Parse(args);
         }
 
         private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -116,36 +121,36 @@ namespace Frost.Commands.DomainUser
             {
                 var shortcut = e.ExceptionObject as ShortcutException;
 
-                QuitUsage(_Options, shortcut.Message);
+                QuitUsage(_Config, shortcut.Message);
             }
 
-            HandleException(_Options, e.ExceptionObject as Exception);
+            HandleException(_Config, e.ExceptionObject as Exception);
         }
 
         private static string BuildCommand()
         {
             var command = new StringBuilder();
 
-            if (_Options.NetOnly)
+            if (_Config.NetOnly)
             {
                 command.Append("/netonly ");
             }
 
-            var user = String.IsNullOrEmpty(_Options.Username)
+            var user = String.IsNullOrEmpty(_Config.Username)
                 ? PromptUser("Enter a user name:")
-                : _Options.Username;
+                : _Config.Username;
 
             command.Append($"/user:{user} ");
 
-            var path = String.IsNullOrEmpty(_Options.CommandPath)
+            var path = String.IsNullOrEmpty(_Config.CommandPath)
                 ? GetShortcut()
-                : _Options.CommandPath;
+                : _Config.CommandPath;
 
             command.Append($"{path.AddQutoes()}");
 
-            if (!String.IsNullOrEmpty(_Options.CustomFlags))
+            if (!String.IsNullOrEmpty(_Config.CustomFlags))
             {
-                command.Append($"{_Options.CustomFlags} ");
+                command.Append($"{_Config.CustomFlags} ");
             }
 
             return command.ToString().Trim();
@@ -153,13 +158,13 @@ namespace Frost.Commands.DomainUser
 
         private static string GetShortcut()
         {
-            var key = _Options.Arguments.Count < 1
+            var key = _Config.Arguments.Count < 1
                 ? PromptUser("Enter a shortcut:")
-                : _Options.Arguments[0];
+                : _Config.Arguments[0];
 
-            _Options.LoadShortcuts(P_SHORTCUTS);
+            _Config.LoadShortcuts(P_SHORTCUTS);
 
-            var pair = _Options.Shortcuts.FirstOrDefault(k => k.Key.ToLower() == key.ToLower());
+            var pair = _Config.Shortcuts.FirstOrDefault(k => k.Key.ToLower() == key.ToLower());
             if (pair.Value == null)
             {
                 throw new ShortcutException("shortcut not found");

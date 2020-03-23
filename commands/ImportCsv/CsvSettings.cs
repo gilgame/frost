@@ -34,12 +34,12 @@ namespace Frost.ImportCsv
         public int Delimiter { get; set; } = 44;
 
         /// <inheritdoc/>
-        public bool FirstRowHeader { get; set; } = false;
+        public bool FirstRowHeader { get; set; }
 
         /// <inheritdoc/>
-        public bool SkipEmptyRows { get; set; } = false;
+        public bool SkipEmptyRows { get; set; }
 
         /// <inheritdoc/>
-        public bool TrimFields { get; set; } = false;
+        public bool TrimFields { get; set; }
     }
 }

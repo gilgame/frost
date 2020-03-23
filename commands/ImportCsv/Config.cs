@@ -41,58 +41,58 @@ namespace Frost.ImportCsv
         public List<string> Arguments => _Options?.Arguments;
 
         /// <inheritdoc/>
-        public bool ShowHelp { get; private set; } = false;
+        public bool ShowHelp { get; private set; }
 
         /// <summary>
         /// Gets the csv settings file path.
         /// </summary>
-        public string ConfigFile { get; private set; } = String.Empty;
+        public string ConfigFile { get; private set; }
 
         /// <summary>
         /// Gets the
         /// </summary>
-        public bool GenerateConfig { get; private set; } = false;
+        public bool GenerateConfig { get; private set; }
 
         /// <summary>
         /// Gets the string used to open the database connection.
         /// </summary>
-        public string ConnectionString { get; private set; } = String.Empty;
+        public string ConnectionString { get; private set; }
 
         /// <summary>
         /// Gets the schema associated with the database connection, dbo by default.
         /// </summary>
-        public string Schema { get; private set; } = String.Empty;
+        public string Schema { get; private set; }
 
         /// <summary>
         /// Gets the table name is all files are meant to import to the same table.
         /// </summary>
-        public string TableName { get; private set; } = String.Empty;
+        public string TableName { get; private set; }
 
         /// <summary>
         /// Indicates whether target tables should be truncated.
         /// </summary>
-        public bool Truncate { get; private set; } = false;
+        public bool Truncate { get; private set; }
 
         /// <summary>
         /// Indicates whether the csv path is a directory.
         /// </summary>
-        public bool IsDirectory { get; private set; } = false;
+        public bool IsDirectory { get; private set; }
 
         /// <summary>
         /// Indicates whether the command should show
         /// additional information during the import.
         /// </summary>
-        public bool Verbose { get; private set; } = false;
+        public bool Verbose { get; private set; }
 
         /// <summary>
         /// Indicates if a directory import should be recursive.
         /// </summary>
-        public bool Recursive { get; private set; } = false;
+        public bool Recursive { get; private set; }
 
         /// <summary>
         /// Indicates whether the command should only test the database connection.
         /// </summary>
-        public bool TestConnection { get; private set; } = false;
+        public bool TestConnection { get; private set; }
 
         /// <summary>
         /// Gets the csv settings file path.
@@ -105,20 +105,20 @@ namespace Frost.ImportCsv
             _Options = new OptionCollection
             {
                 {'x', "xml", "xml file with config, overrides any command flags", v => ConfigFile = v },
-                {'g', "generate", "generate config file from this command", (bool v) => GenerateConfig = v },
+                {'g', "generate", "generate config file from this command", v => GenerateConfig = true },
                 {'c', "connection", "string to be used for sql server connection", v => ConnectionString = v },
                 {'s', "schema", "path to table schema file, overrides other sql settings", v => Schema = v },
                 {'q', "table", "destination table name, uses file name by default", v => TableName = v },
-                {'v', "truncate", "truncate the destination table if it exists", (bool v) => Truncate = v },
-                {'n', "hasheader", "first row has column names", (bool v) => CsvSettings.FirstRowHeader = v },
-                {'m', "trimfields", "trim fields of whitespace", (bool v) => CsvSettings.TrimFields = v },
-                {'e', "skipempty", "skip empty rows", (bool v) => CsvSettings.SkipEmptyRows = v },
+                {'u', "truncate", "truncate the destination table if it exists", v => Truncate = true },
+                {'n', "hasheader", "first row has column names", v => CsvSettings.FirstRowHeader = true },
+                {'m', "trimfields", "trim fields of whitespace", v => CsvSettings.TrimFields = true },
+                {'e', "skipempty", "skip empty rows", v => CsvSettings.SkipEmptyRows = true },
                 {'l', "delimiter", "field separator by integer value, default comma (44)", (int v) => CsvSettings.Delimiter = v },
-                {'d', "directory", "import directory, .csv extension only", (bool v) => IsDirectory = v },
-                {'r', "recursive", "import directory and its contents recursively", (bool v) => Recursive = v },
-                {'v', "verbose", "display additional information during the import", (bool v) => Verbose = v },
-                {'t', "test", "test the connection only", (bool v) => TestConnection = v },
-                {'h', "help", "show this message and exit", (bool v) => ShowHelp = v },
+                {'d', "directory", "import directory, .csv extension only", v => IsDirectory = true },
+                {'r', "recursive", "import directory and its contents recursively", v => Recursive = true },
+                {'v', "verbose", "display additional information during the import", v => Verbose = true },
+                {'t', "test", "test the connection only", v => TestConnection = true },
+                {'h', "help", "show this message and exit", v => ShowHelp = true },
             }
             .SetUsage("Usage: importcsv [options] ([directory] | [file1 file2 ...])")
             .Parse(args); ;

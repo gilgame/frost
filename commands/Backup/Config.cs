@@ -44,7 +44,7 @@ namespace Frost.Commands
         public List<string> Arguments => _Options?.Arguments;
 
         /// <inheritdoc/>
-        public bool ShowHelp { get; private set; } = false;
+        public bool ShowHelp { get; private set; }
 
         /// <summary>
         /// Gets the specified 7z command.
@@ -59,17 +59,17 @@ namespace Frost.Commands
         /// <summary>
         /// Indicates whether the program should include flags that ignore Visual Studio files.
         /// </summary>
-        public bool VsFlags { get; private set; } = false;
+        public bool VsFlags { get; private set; }
 
         /// <summary>
         /// Indicates whether the file name should include a time stamp.
         /// </summary>
-        public bool Timestamp { get; private set; } = true;
+        public bool Timestamp { get; private set; }
 
         /// <summary>
         /// Indicates whether 7z should recursively archive a directory.
         /// </summary>
-        public bool Recursive { get; private set; } = true;
+        public bool Recursive { get; private set; }
 
         /// <summary>
         /// Indicates a custom output archive file name.
@@ -86,14 +86,14 @@ namespace Frost.Commands
         {
             _Options = new OptionCollection
             {
-                {'c', "command", "specifcy a custom 7z command, default: add", c => Command = c},
-                {'f', "flags", "specify custom flags, overrides all other flags", f => CustomFlags = f},
+                {'c', "command", "specifcy a custom 7z command, default: add", v => Command = v},
+                {'f', "flags", "specify custom flags, overrides all other flags", v => CustomFlags = v},
                 {'v', "vsflags", "use visual studio file ext and folder name exceptions", v => VsFlags = true},
-                {'t', "timestamp", "add timestamp to 7z file name, default=true (true|false)", (bool t) => Timestamp = t},
-                {'r', "recursive", "recurse subdirectories, default=true (true|false)", (bool r) => Recursive = r},
-                {'o', "output", "specify a custom file name for output", o => OutputName = o},
-                {'p', "path", "specify a custom path to the 7z executable", p => CustomPath = p},
-                {'h', "help", "show this message and exit", h => ShowHelp = true },
+                {'t', "timestamp", "add timestamp to 7z file name", v => Timestamp = true },
+                {'r', "recursive", "recurse subdirectories", v => Recursive = true},
+                {'o', "output", "specify a custom file name for output", v => OutputName = v},
+                {'p', "path", "specify a custom path to the 7z executable", v => CustomPath = v},
+                {'h', "help", "show this message and exit", v => ShowHelp = true },
             }
             .SetUsage("Usage: backup [options] ([directory] | [file1 file2 ...])")
             .Parse(args);

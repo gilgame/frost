@@ -42,8 +42,9 @@ namespace Frost.Commands
 #if DEBUG
         private static string[] GetArgs() => new string[]
         {
-            @"-v",
-            @"C:\Users\Tim\source\repos\frost",
+            //@"-v",
+            //@"C:\Users\Tim\source\repos\frost",
+            @"-h",
         };
 #endif
 
