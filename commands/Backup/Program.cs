@@ -167,6 +167,11 @@ namespace Frost.Commands
                 args.Add(Config.VS_FLAGS);
             }
 
+            if (_Config.GitFlags)
+            {
+                args.Add(Config.GIT_FLAGS);
+            }
+
             var result = String.Join(" ", args);
 
             return result;

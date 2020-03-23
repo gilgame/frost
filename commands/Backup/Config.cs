@@ -35,6 +35,11 @@ namespace Frost.Commands
         /// </summary>
         public const string VS_FLAGS = "-xr!bin -xr!obj -xr!.vs -xr!.git -x!*.rsuser -x!*.suo -x!*.user -x!*.userosscache -x!*.sln.docstates -x!*.userprefs -x!*.log";
 
+        /// <summary>
+        /// Represents a string that includes 7z flags to ignore Git files.
+        /// </summary>
+        public const string GIT_FLAGS = "-xr!.git";
+
         private OptionCollection _Options;
 
         /// <inheritdoc/>
@@ -60,6 +65,11 @@ namespace Frost.Commands
         /// Indicates whether the program should include flags that ignore Visual Studio files.
         /// </summary>
         public bool VsFlags { get; private set; }
+
+        /// <summary>
+        /// Indicates whether the program should include flags that ignore Git files.
+        /// </summary>
+        public bool GitFlags { get; private set; }
 
         /// <summary>
         /// Indicates whether the file name should include a time stamp.
@@ -89,6 +99,7 @@ namespace Frost.Commands
                 {'c', "command", "specifcy a custom 7z command, default: add", v => Command = v},
                 {'f', "flags", "specify custom flags, overrides all other flags", v => CustomFlags = v},
                 {'v', "vsflags", "use visual studio file ext and folder name exceptions", v => VsFlags = true},
+                {'g', "gitflags", "use git file ext and folder name exceptions", v => GitFlags = true},
                 {'t', "timestamp", "add timestamp to 7z file name", v => Timestamp = true },
                 {'r', "recursive", "recurse subdirectories", v => Recursive = true},
                 {'o', "output", "specify a custom file name for output", v => OutputName = v},
