@@ -25,7 +25,7 @@
 
 using Frost.Lib.Parsers;
 
-namespace Frost.ImportCsv
+namespace Frost.Commands.ImportCsv
 {
     /// <inheritdoc/>
     public class CsvSettings : ICsvSettings

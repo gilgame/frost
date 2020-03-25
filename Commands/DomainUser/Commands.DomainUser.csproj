@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>duser</AssemblyName>
+        <RootNamespace>Frost.Commands.DomainUser</RootNamespace>
+        <StartupObject>Frost.Commands.DomainUser.Program</StartupObject>
+        <Version>1.0</Version>
+        <Authors>TD Fellows</Authors>
+        <Company>TD Frost</Company>
+        <Product>DomainUser</Product>
+        <Copyright>Copyright (c) TD Fellows, TD Frost 2020</Copyright>
+        <PackageLicenseFile>..\..\LICENSE.MIT</PackageLicenseFile>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DebugType>portable</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputPath>bin\Release\</OutputPath>
+        <DebugType>portable</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\.licenseheader" Link=".licenseheader" />
+        <ProjectReference Include="..\..\Lib\Shared\Lib.Shared.csproj" />
+        <None Update="LICENSE.MIT">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    
+    <Target Name="AddRuntimeDependenciesToContent" Condition=" '$(TargetFrameworkIdentifier)' == '.NETCoreApp'" BeforeTargets="GetCopyToOutputDirectoryItems" DependsOnTargets="GenerateBuildDependencyFile;GenerateBuildRuntimeConfigurationFiles">
+        <ItemGroup>
+            <ContentWithTargetPath Include="$(ProjectDepsFilePath)" CopyToOutputDirectory="PreserveNewest" TargetPath="$(ProjectDepsFileName)" />
+            <ContentWithTargetPath Include="$(ProjectRuntimeConfigFilePath)" CopyToOutputDirectory="PreserveNewest" TargetPath="$(ProjectRuntimeConfigFileName)" />
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\RunasShortcuts.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\lib\Parsers\Lib.Parsers.csproj" />
+        <ProjectReference Include="..\..\lib\Shared\Lib.Shared.csproj" />
+    </ItemGroup>
+</Project>

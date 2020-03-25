@@ -26,7 +26,7 @@
 using Frost.Lib.CommandLine;
 using System.Collections.Generic;
 
-namespace Frost.Commands
+namespace Frost.Commands.Backup
 {
     public class Config : IOptions
     {

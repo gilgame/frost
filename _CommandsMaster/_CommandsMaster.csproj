@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>CommandsMaster</AssemblyName>
+        <RootNamespace>Frost.Commands.CommandsMaster</RootNamespace>
+        <StartupObject>Frost.Commands.CommandsMaster.Program</StartupObject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove=".\**" />
+        <EmbeddedResource Remove=".\**" />
+        <None Remove=".\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="Program.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Lib\Parsers\Lib.Parsers.csproj" />
+        <ProjectReference Include="..\Lib\Shared\Lib.Shared.csproj" />
+        <ProjectReference Include="..\Lib\SqlDatabase\Lib.SqlDatabase.csproj" />
+        <ProjectReference Include="..\Commands\Backup\Commands.Backup.csproj" />
+        <ProjectReference Include="..\Commands\DomainUser\Commands.DomainUser.csproj" />
+        <ProjectReference Include="..\Commands\ImportCsv\Commands.ImportCsv.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DebugType>portable</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputPath>bin\Release\</OutputPath>
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="LICENSE.MIT">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <Target Name="DeleteFiles" AfterTargets="Publish">
+        <Delete Files="$(PublishDir)$(TargetName).deps.json" />
+        <Delete Files="$(PublishDir)$(TargetName).dll" />
+        <Delete Files="$(PublishDir)$(TargetName).dll.config" />
+        <Delete Files="$(PublishDir)$(TargetName).exe" />
+        <Delete Files="$(PublishDir)$(TargetName).runtimeconfig.json" />
+        <Delete Files="$(PublishDir)$(TargetName).runtimeconfig.dev.json" />
+    </Target>
+</Project>

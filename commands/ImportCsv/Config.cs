@@ -27,7 +27,7 @@ using Frost.Lib.CommandLine;
 using System;
 using System.Collections.Generic;
 
-namespace Frost.ImportCsv
+namespace Frost.Commands.ImportCsv
 {
     /// <inheritdoc/>
     public class Config : IOptions

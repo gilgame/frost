@@ -29,12 +29,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace Frost.Commands
+namespace Frost.Commands.Backup
 {
     /// <summary>
     /// Represents a program that simplifies calls to 7z.exe with custom parameters.
     /// </summary>
-    public class Backup : ConsoleHelper
+    public class Program : ConsoleHelper
     {
         private static string _ExePath;
         private static readonly Config _Config = new Config();

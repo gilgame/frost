@@ -30,7 +30,7 @@ using Frost.Lib.SqlDatabase;
 using System;
 using System.IO;
 
-namespace Frost.ImportCsv
+namespace Frost.Commands.ImportCsv
 {
     public class Program : ConsoleHelper
     {

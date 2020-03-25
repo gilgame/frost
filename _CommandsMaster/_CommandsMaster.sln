@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_CommandsMaster", "_CommandsMaster.csproj", "{00AD67F2-AC1F-40E6-9862-AA6E7F298950}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands.Backup", "..\Commands\Backup\Commands.Backup.csproj", "{D22674FC-2941-4ACE-A599-0A5C76CB3BFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands.DomainUser", "..\Commands\DomainUser\Commands.DomainUser.csproj", "{B3807A95-B2EB-44F6-B46A-EAA7B2DD2B80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands.ImportCsv", "..\Commands\ImportCsv\Commands.ImportCsv.csproj", "{B0CCA6DE-CC17-4D52-BC4E-6B9BA4F4F5D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Parsers", "..\Lib\Parsers\Lib.Parsers.csproj", "{10B14D0C-F7A3-4E86-8BA5-2A9258C9A591}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Shared", "..\Lib\Shared\Lib.Shared.csproj", "{B5168421-5933-4EB8-A3FC-0AD997B61CF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.SqlDatabase", "..\Lib\SqlDatabase\Lib.SqlDatabase.csproj", "{DAB5021A-4C37-4C1B-A738-19D69E8D4749}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00AD67F2-AC1F-40E6-9862-AA6E7F298950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00AD67F2-AC1F-40E6-9862-AA6E7F298950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00AD67F2-AC1F-40E6-9862-AA6E7F298950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00AD67F2-AC1F-40E6-9862-AA6E7F298950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22674FC-2941-4ACE-A599-0A5C76CB3BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22674FC-2941-4ACE-A599-0A5C76CB3BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22674FC-2941-4ACE-A599-0A5C76CB3BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22674FC-2941-4ACE-A599-0A5C76CB3BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3807A95-B2EB-44F6-B46A-EAA7B2DD2B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3807A95-B2EB-44F6-B46A-EAA7B2DD2B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3807A95-B2EB-44F6-B46A-EAA7B2DD2B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3807A95-B2EB-44F6-B46A-EAA7B2DD2B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CCA6DE-CC17-4D52-BC4E-6B9BA4F4F5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CCA6DE-CC17-4D52-BC4E-6B9BA4F4F5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CCA6DE-CC17-4D52-BC4E-6B9BA4F4F5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CCA6DE-CC17-4D52-BC4E-6B9BA4F4F5D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10B14D0C-F7A3-4E86-8BA5-2A9258C9A591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B14D0C-F7A3-4E86-8BA5-2A9258C9A591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B14D0C-F7A3-4E86-8BA5-2A9258C9A591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B14D0C-F7A3-4E86-8BA5-2A9258C9A591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5168421-5933-4EB8-A3FC-0AD997B61CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5168421-5933-4EB8-A3FC-0AD997B61CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5168421-5933-4EB8-A3FC-0AD997B61CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5168421-5933-4EB8-A3FC-0AD997B61CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB5021A-4C37-4C1B-A738-19D69E8D4749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB5021A-4C37-4C1B-A738-19D69E8D4749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB5021A-4C37-4C1B-A738-19D69E8D4749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB5021A-4C37-4C1B-A738-19D69E8D4749}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B4F7DA7-9BF5-4F37-A7DE-B80DFEBF39E6}
+	EndGlobalSection
+EndGlobal
